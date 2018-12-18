@@ -5,7 +5,7 @@ env:
 - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
 before_install:
 - openssl aes-256-cbc -K $encrypted_cc1db8555c0a_key -iv $encrypted_cc1db8555c0a_iv
-  -in servwiki.key.enc -out assets/servwiki.key -d
+  -in assets/servwiki.key.enc -out assets/servwiki.key -d
 - export SFDX_AUTOUPDATE_DISABLE=false
 - export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
 - export SFDX_DOMAIN_RETRY=0
@@ -17,9 +17,7 @@ before_install:
 - export PATH=./sfdx/$(pwd):$PATH
 - sfdx --version
 - sfdx plugins --core
-- sfdx force:auth:jwt:grant --clientid 3MVG9fTLmJ60pJ5K6iXUWEO7ayo5OoK_XBN41.crnF85jT9dRK.9Rx4KfzAEIMQkNIE6InO37DaQt3aYnn6.M
-  --username andrey.willi@gmail.com --jwtkeyfile wandreyBytel/sfdx-travisci/assets/servwiki.key
-  --setdefaultdevhubusername -r https://wandrey-dev-ed.my.salesforce.com
+- sfdx force:auth:jwt:grant --clientid 3MVG9fTLmJ60pJ5K6iXUWEO7ayo5OoK_XBN41.crnF85jT9dRK.9Rx4KfzAEIMQkNIE6InO37DaQt3aYnn6.M --username andrey.willi@gmail.com --jwtkeyfile wandreyBytel/sfdx-travisci/assets/servwiki.key --setdefaultdevhubusername -r https://wandrey-dev-ed.my.salesforce.com
 script:
 - sfdx force:org:create -v HubOrg -s -f config/project-scratch-def.json -a ciorg --wait
   2
