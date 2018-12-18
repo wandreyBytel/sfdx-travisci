@@ -19,10 +19,10 @@ before_install:
 - sfdx force:auth:jwt:grant --clientid 3MVG9fTLmJ60pJ5K6iXUWEO7ayo5OoK_XBN41.crnF85jT9dRK.9Rx4KfzAEIMQkNIE6InO37DaQt3aYnn6.M --username andrey.willi@gmail.com --jwtkeyfile assets/servwiki.key --setdefaultdevhubusername -r https://wandrey-dev-ed.my.salesforce.com
 script:
 - sfdx force:org:list --all
-- sfdx force:org:delete -u 00D7E00000098xMUAQ -p -v andrey.willi@gmail.com
 - sfdx force:org:create adminEmail=andrey.willi@gmail.com edition=Developer username=andrey.willi@gmail.com -a testORg
 - sfdx force:org:display -u testORg
 - sfdx force:source:push -u testORg
 - sfdx force:apex:test:run -u testORg --wait 10
+- sfdx force:org:delete -u testORg -p -v andrey.willi@gmail.com
 
 
