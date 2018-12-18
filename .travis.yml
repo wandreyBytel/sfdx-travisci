@@ -16,7 +16,7 @@ before_install:
 - export PATH=./sfdx/$(pwd):$PATH
 - sfdx --version
 - sfdx plugins --core
-- sfdx force:auth:jwt:grant --clientid 3MVG9fTLmJ60pJ5K6iXUWEO7ayo5OoK_XBN41.crnF85jT9dRK.9Rx4KfzAEIMQkNIE6InO37DaQt3aYnn6.M --username andrey.willi@gmail.com  --setdefaultdevhubusername -r https://wandrey-dev-ed.my.salesforce.com
+- sfdx force:auth:jwt:grant --clientid 3MVG9fTLmJ60pJ5K6iXUWEO7ayo5OoK_XBN41.crnF85jT9dRK.9Rx4KfzAEIMQkNIE6InO37DaQt3aYnn6.M --username andrey.willi@gmail.com --jwtkeyfile assets/servwiki.key --setdefaultdevhubusername -r https://wandrey-dev-ed.my.salesforce.com
 script:
 - sfdx force:org:create -v HubOrg -s -f config/project-scratch-def.json -a ciorg --wait 2
 - sfdx force:org:display -u ciorg
