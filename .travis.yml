@@ -20,7 +20,7 @@ before_install:
 script:
 - sfdx force:config:set defaultdevhubusername=andrey.willi@gmail.com --global
 - sfdx force:org:list --all
-- sfdx force:org:create --definitionfile config/project-scratch-def.json --targetdevhubusername andrey.willi@gmail.Com --setalias my-scratch-org
+- sfdx force:org:create --definitionfile config/project-scratch-def.json --setalias my-scratch-org
 - sfdx force:org:display -u my-scratch-org
 - sfdx force:source:push -u my-scratch-org
 - sfdx force:apex:test:run -u my-scratch-org --wait 10
